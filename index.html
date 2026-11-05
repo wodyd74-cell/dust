@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- 문서 유형을 HTML5로 선언합니다 -->
+<html lang="ko">
+<!-- 문서의 주 언어를 한국어로 설정합니다 -->
+<head>
+  <!-- 문서의 메타데이터를 담는 영역입니다 -->
+  <meta charset="UTF-8">
+  <!-- 문자 인코딩을 UTF-8로 설정합니다 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 모바일 반응형 화면을 지원합니다 -->
+  <title>우리 동네 공기 신호등</title>
+  <!-- Pretendard 웹폰트를 CDN을 통해 불러옵니다 -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- 스타일시트 파일을 연결합니다 -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js 라이브러리를 CDN으로 불러옵니다 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- 전체 콘텐츠 컨테이너입니다 -->
+  <div class="container">
+    <!-- 상단 헤더 영역입니다 -->
+    <header class="header">
+      <div class="brand">
+        <!-- 서비스 이름과 아이콘입니다 -->
+        <span class="brand-icon">🚦</span>
+        <h1>공기 신호등</h1>
+      </div>
+      <div class="control-box">
+        <!-- 시도 선택 드롭다운 영역입니다 -->
+        <label for="sido-select">지역 선택</label>
+        <select id="sido-select">
+          <option value="전국">전국</option>
+          <option value="서울" selected>서울</option>
+          <option value="부산">부산</option>
+          <option value="대구">대구</option>
+          <option value="인천">인천</option>
+          <option value="광주">광주</option>
+          <option value="대전">대전</option>
+          <option value="울산">울산</option>
+          <option value="세종">세종</option>
+          <option value="경기">경기</option>
+          <option value="강원">강원</option>
+          <option value="충북">충북</option>
+          <option value="충남">충남</option>
+          <option value="전북">전북</option>
+          <option value="전남">전남</option>
+          <option value="경북">경북</option>
+          <option value="경남">경남</option>
+          <option value="제주">제주</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- 공기 신호등 대형 요약 배너 영역입니다 -->
+    <section id="traffic-hero" class="traffic-hero grade-none">
+      <!-- 지역 이름 표시 레이블입니다 -->
+      <div class="region-badge"><span id="selected-sido">서울</span> 대기질 현황</div>
+
+      <!-- 신호등 이모지와 상태 텍스트를 크게 보여주는 영역입니다 -->
+      <div class="traffic-main">
+        <span id="traffic-emoji" class="traffic-emoji">⚪</span>
+        <div class="traffic-text-group">
+          <div id="traffic-status-text" class="traffic-status-text">불러오는 중...</div>
+          <div id="traffic-metric">평균 미세먼지 <strong id="avg-pm10">-</strong></div>
+        </div>
+      </div>
+
+      <!-- 맞춤형 한 줄 행동 요령 안내 문구입니다 -->
+      <div id="traffic-action-tip" class="traffic-action-tip">데이터를 확인하고 있습니다.</div>
+
+      <!-- 기준 시각 표시 영역입니다 -->
+      <div id="base-time-display" class="base-time-display">기준 시각 확인 중</div>
+    </section>
+
+    <!-- 측정소별 미세먼지 상위 10개 가로 막대그래프 섹션입니다 -->
+    <section class="chart-section">
+      <div class="chart-header">
+        <h2>📊 미세먼지 수치 상위 10개 측정소</h2>
+        <span class="chart-sub">높은 순 정렬 (단위: ㎍/㎥)</span>
+      </div>
+      <div class="chart-container">
+        <canvas id="dust-chart"></canvas>
+      </div>
+    </section>
+
+    <!-- 측정소 카드 목록 메인 섹션입니다 -->
+    <main>
+      <!-- 로딩 및 에러 상태 메시지입니다 -->
+      <div id="status-message" class="status-message">불러오는 중...</div>
+      <!-- 개별 측정소 카드 그리드 컨테이너입니다 -->
+      <div id="card-grid" class="card-grid"></div>
+    </main>
+  </div>
+
+  <!-- 메인 자바스크립트 파일을 불러옵니다 -->
+  <script src="app.js"></script>
+</body>
+</html>

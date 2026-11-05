@@ -438,3 +438,32 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* 공공데이터 출처 표기 푸터 스타일입니다 */
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.footer-source {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #475569;
+}
+
+.footer-source strong {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.footer-notice {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 auto;
+}
